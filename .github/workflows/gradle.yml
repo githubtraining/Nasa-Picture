@@ -1,6 +1,13 @@
-name: Java CI With Gradle Build
+name: Java CD to K8s
 
-on: [push]
+
+on:
+  push:
+    branches:
+      - master
+    # file paths to consider in the event. Optional; defaults to all.
+    paths:
+      - 'kubernetes/*'
 
 jobs:
   build:
@@ -13,26 +20,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Update Ubuntu
-      run: sudo add-apt-repository ppa:cwchien/gradle;sudo apt-get update -y
-    - name: Install Gradle
-      run: sudo apt-get install gradle
-    - name: Build with Gradle
-      run: gradle build
-    - name: Docker Build
-      run: docker build -t nasa-picture .
-    - name: Login To Docker Hub
-      run: docker login -u ${{secrets.dhuser}} -p ${{secrets.dhpassword}}
-    - name: Tag Docker Image
-      run: docker tag nasa-picture:latest johndavidmarx/hubops:nasa-picture
-    - name: Push Image To DockerHub
-      run: docker push johndavidmarx/hubops:nasa-picture
-    - name: Prepare pem file
-      run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output marx4universe.pem secrets/marx4universe.pem.gpg
-      env:
-        GPGPW: ${{secrets.awspassword}}
-    - name: Fix Perms on pem
-      run: chmod 400 marx4universe.pem
-    - name: Access AWS Jump Box
-      run: ssh -o StrictHostKeyChecking=no -i marx4universe.pem ubuntu@ec2-18-191-112-1.us-east-2.compute.amazonaws.com "/home/ubuntu/playit.sh nasa-picture.yml"
+        
+    - name: Kubernetes kubectl
+      run: kubectl -f kubernetes/sample.yml
       
