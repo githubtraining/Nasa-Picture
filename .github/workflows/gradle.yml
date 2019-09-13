@@ -1,13 +1,7 @@
 name: Java CD to K8s
 
 
-on:
-  push:
-    branches:
-      - master
-    # file paths to consider in the event. Optional; defaults to all.
-    paths:
-      - 'kubernetes/*'
+on: [push]
 
 jobs:
   build:
