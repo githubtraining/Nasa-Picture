@@ -24,7 +24,6 @@ jobs:
     - name: Fix Perms on pem
       run: chmod 400 marx4universe.pem
     - name: Copy Test Reports To AWS Jump Box
-      run: scp -o StrictHostKeyChecking=no -i marx4universe.pem ubuntu@ec2-18-191-112-1.us-east-2.compute.amazonaws.com:./test-reports.zip /home/ubuntu
-      
+      run: scp -o StrictHostKeyChecking=no -i marx4universe.pem ./test-reports.zip ubuntu@ec2-18-191-112-1.us-east-2.compute.amazonaws.com:/home/ubuntu/test-reports.zip
     - name: Build with Gradle
       run: ./gradlew build
