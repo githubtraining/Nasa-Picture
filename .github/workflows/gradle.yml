@@ -17,5 +17,14 @@ jobs:
       run: ./gradlew test
     - name: Package Test Reports
       run: zip -r ./test-reports.zip ./build/reports/*
+    - name: Prepare pem file
+      run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output marx4universe.pem secrets/marx4universe.pem.gpg
+      env:
+        GPGPW: ${{secrets.awspassword}}
+    - name: Fix Perms on pem
+      run: chmod 400 marx4universe.pem
+    - name: Copy Test Reports To AWS Jump Box
+      run: scp -o StrictHostKeyChecking=no -i marx4universe.pem ubuntu@ec2-18-191-112-1.us-east-2.compute.amazonaws.com:./test-reports.zip /home/ubuntu
+      
     - name: Build with Gradle
       run: ./gradlew build
