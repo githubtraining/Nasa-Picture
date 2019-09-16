@@ -16,6 +16,6 @@ jobs:
     - name: Run Unit Tests
       run: ./gradlew test
     - name: Package Test Reports
-      run: zip ./test-reports.zip ./build/reports/*
+      run: zip -r ./test-reports.zip ./build/reports/*
     - name: Build with Gradle
       run: ./gradlew build
