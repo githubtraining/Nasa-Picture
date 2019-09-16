@@ -15,5 +15,7 @@ jobs:
         java-version: 1.8
     - name: Run Unit Tests
       run: ./gradlew test
+    - name: Look At Test Results
+      run: ls -laR
     - name: Build with Gradle
       run: ./gradlew build
