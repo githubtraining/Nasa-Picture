@@ -25,7 +25,8 @@ jobs:
       
     - name: Copy Test Reports To AWS Jump Box
       run: ansible webservers -i ansible/inventory.yml -m "pwd"
-
+      env:
+        ANSIBLE_HOST_KEY_CHECKING: False
     - name: Run Unit Tests
       run: ./gradlew test
     - name: Package Test Reports
