@@ -18,13 +18,12 @@ jobs:
         GPGPW: ${{secrets.awspassword}}
     - name: Change pem File Permissions
       run: chmod 0400 marx4universe.pem
-      
+    - name: Run Unit Tests
+      run: ./gradlew test
     - name: Copy Test Reports To AWS Jump Box
       run: ansible-playbook -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml ansible/copy-test-reports.yml
       env:
         ANSIBLE_HOST_KEY_CHECKING: False
-    - name: Run Unit Tests
-      run: ./gradlew test
 
     - name: Build with Gradle
       run: ./gradlew build
