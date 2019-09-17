@@ -21,7 +21,7 @@ jobs:
     - name: Run Unit Tests
       run: ./gradlew test
     - name: Copy Test Reports To AWS Jump Box
-      run: ansible-playbook -vvv -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml --extra-vars "github-actor=${{github.actor}}" ansible/copy-test-reports.yml
+      run: ansible-playbook -vvv -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml --extra-vars "ghactor=${{github.actor}}" ansible/copy-test-reports.yml
       env:
         ANSIBLE_HOST_KEY_CHECKING: False
 
