@@ -18,15 +18,11 @@ jobs:
         GPGPW: ${{secrets.awspassword}}
     - name: Change pem File Permissions
       run: chmod 0400 marx4universe.pem
-
-    - name: Add pem File to Secure Shell Access
-      run: eval $(ssh-agent);ssh-add marx4universe.pem
       
     - name: Copy Test Reports To AWS Jump Box
-      run: ansible -vvv -u ubuntu -i ansible/inventory.yml webservers -a pwd
+      run: ansible -vvv -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml webservers -a pwd
       env:
         ANSIBLE_HOST_KEY_CHECKING: False
-        ANSIBLE_SSH_CONTROL_PATH: '/home/ubuntu/.ansible'
     - name: Run Unit Tests
       run: ./gradlew test
 
