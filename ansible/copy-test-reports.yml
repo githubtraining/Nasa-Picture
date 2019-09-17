@@ -1,9 +1,6 @@
 - hosts: webservers
   tasks:
     - name: Copy files to remote host
-      copy:
+      synchronize:
         src: build/reports/tests/test
         dest: /var/www/html/reports
-        owner: root
-        group: root
-        mode: 0755
