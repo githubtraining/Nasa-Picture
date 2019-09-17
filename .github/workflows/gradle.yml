@@ -12,15 +12,19 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+      
     - name: Prepare pem file
       run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output marx4universe.pem secrets/marx4universe.pem.gpg
       env:
         GPGPW: ${{secrets.awspassword}}
+        
     - name: Change pem File Permissions
       run: chmod 0400 marx4universe.pem
+      
     - name: Run Unit Tests
       run: ./gradlew test
-    - name: Copy Test Reports To AWS Jump Box
+      
+    - name: Copy Test Reports To AWS Webserver
       run: ansible-playbook -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml --extra-vars "ghactor=${{github.actor}}" ansible/copy-test-reports.yml
       env:
         ANSIBLE_HOST_KEY_CHECKING: False
