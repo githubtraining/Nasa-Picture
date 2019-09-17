@@ -1,0 +1,12 @@
+all:
+  hosts:
+    ec2-18-191-112-1.us-east-2.compute.amazonaws.com
+  children:
+    webservers:
+      hosts:
+        ec2-18-191-112-1.us-east-2.compute.amazonaws.com
+    otherservers:
+      hosts:
+        one.example.com:
+        two.example.com:
+        three.example.com:
