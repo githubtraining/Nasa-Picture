@@ -23,7 +23,7 @@ jobs:
       run: eval $(ssh-agent);ssh-add marx4universe.pem
       
     - name: Copy Test Reports To AWS Jump Box
-      run: ansible -vvvv -u ubuntu -i ansible/inventory.yml webservers -a pwd
+      run: ansible -vv -u ubuntu -i ansible/inventory.yml webservers -a pwd
       env:
         ANSIBLE_HOST_KEY_CHECKING: False
         ANSIBLE_SSH_CONTROL_PATH: '/home/ubuntu/.ansible'
