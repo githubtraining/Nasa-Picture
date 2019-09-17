@@ -1,0 +1,13 @@
+- hosts: webservers
+  gather_facts: no
+  tasks:
+    - name: Create desitnation directory on remote webserver
+      file:
+        path: /var/lib/tomcat8/webapps/ROOT/webapps/{{ghactor}}
+        state: directory
+      become: true
+    - name: Copy files to remote host
+      synchronize:
+        src: /home/runner/work/Nasa-Picture/Nasa-Picture/build/libs/nasapicture-0.0.1-SNAPSHOT.war
+        dest: /var/lib/tomcat8/webapps/ROOT/webapps/{{ghactor}}
+      become: true
