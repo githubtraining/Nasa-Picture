@@ -13,17 +13,20 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Run Unit Tests
-      run: ./gradlew test
-    - name: Package Test Reports
-      run: zip -r ./test-reports.zip ./build/reports/*
     - name: Prepare pem file
       run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output marx4universe.pem secrets/marx4universe.pem.gpg
       env:
         GPGPW: ${{secrets.awspassword}}
-    - name: Fix Perms on pem
-      run: chmod 400 marx4universe.pem
+    - name: Add pem File to Secure Shell Access
+      run: ssh-agent bash;ssh-add marx4universe.pem
     - name: Copy Test Reports To AWS Jump Box
       run: ansible webservers -i ansible/inventory.yml -m "pwd"
+
+    - name: Run Unit Tests
+      run: ./gradlew test
+    - name: Package Test Reports
+      run: zip -r ./test-reports.zip ./build/reports/*
+    - name: Fix Perms on pem
+      run: chmod 400 marx4universe.pem
     - name: Build with Gradle
       run: ./gradlew build
