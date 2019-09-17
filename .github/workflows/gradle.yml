@@ -31,3 +31,8 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
+      
+    - name: Copy WebApp war file To AWS Webserver
+      run: ansible-playbook -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml --extra-vars "ghactor=${{github.actor}}" ansible/copy-war-file.yml
+      env:
+        ANSIBLE_HOST_KEY_CHECKING: False
