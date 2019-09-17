@@ -26,6 +26,7 @@ jobs:
       run: ansible -vvvv -u ubuntu -i ansible/inventory.yml webservers -a pwd
       env:
         ANSIBLE_HOST_KEY_CHECKING: False
+        ANSIBLE_SSH_CONTROL_PATH: '%(directory)s/%%h-%%r'
     - name: Run Unit Tests
       run: ./gradlew test
 
