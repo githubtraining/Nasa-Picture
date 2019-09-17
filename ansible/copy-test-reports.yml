@@ -1,5 +1,5 @@
 - hosts: webservers
-  task:
+  tasks:
     - name: Copy files to remote host
       copy:
         src: build/reports/tests/test
