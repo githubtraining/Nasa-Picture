@@ -2,5 +2,5 @@
   tasks:
     - name: Copy files to remote host
       synchronize:
-        src: build/reports/tests/test
+        src: ./build/reports/tests/test
         dest: /var/www/html/reports
