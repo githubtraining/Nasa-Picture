@@ -1,0 +1,9 @@
+- host: webserver
+  task:
+    - name: Copy files to remote host
+      copy:
+        src: build/reports/tests/test
+        dest: /var/www/html/reports
+        owner: root
+        group: root
+        mode: 0755
