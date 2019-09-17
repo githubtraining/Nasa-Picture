@@ -20,8 +20,6 @@ jobs:
       run: chmod 0400 marx4universe.pem
     - name: Run Unit Tests
       run: ./gradlew test
-    - name: pwd
-      run: pwd
     - name: Copy Test Reports To AWS Jump Box
       run: ansible-playbook -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml ansible/copy-test-reports.yml
       env:
