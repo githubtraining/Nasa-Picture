@@ -3,6 +3,6 @@
   tasks:
     - name: Copy files to remote host
       synchronize:
-        src: /home/runner/work/Nasa-Picture/Nasa-Picture/build/reports/tests/test/
+        src: /home/runner/work/Nasa-Picture/Nasa-Picture/build/reports/tests/test
         dest: /var/www/html/reports/{{ghactor}}"
       become: true
