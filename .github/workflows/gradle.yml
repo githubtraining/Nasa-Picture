@@ -20,7 +20,7 @@ jobs:
       run: chmod 0400 marx4universe.pem
       
     - name: Copy Test Reports To AWS Jump Box
-      run: ansible -vvv -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml webservers -a pwd
+      run: ansible -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml webservers -a pwd
       env:
         ANSIBLE_HOST_KEY_CHECKING: False
     - name: Run Unit Tests
