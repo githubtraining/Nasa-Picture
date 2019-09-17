@@ -1,4 +1,4 @@
-- host: webserver
+- host: webservers
   task:
     - name: Copy files to remote host
       copy:
