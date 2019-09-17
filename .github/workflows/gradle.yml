@@ -17,8 +17,10 @@ jobs:
       run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output marx4universe.pem secrets/marx4universe.pem.gpg
       env:
         GPGPW: ${{secrets.awspassword}}
+    - name: Start SSH Agent
+      run: eval 'ssh-agent'
     - name: Add pem File to Secure Shell Access
-      run: ssh-agent bash;ssh-add marx4universe.pem
+      run: ssh-add marx4universe.pem
     - name: Copy Test Reports To AWS Jump Box
       run: ansible webservers -i ansible/inventory.yml -m "pwd"
 
