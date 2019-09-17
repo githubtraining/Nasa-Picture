@@ -24,6 +24,6 @@ jobs:
     - name: Fix Perms on pem
       run: chmod 400 marx4universe.pem
     - name: Copy Test Reports To AWS Jump Box
-      run: ansible --version
+      run: ansible -i ansible/inventory.yml -m "pwd"
     - name: Build with Gradle
       run: ./gradlew build
