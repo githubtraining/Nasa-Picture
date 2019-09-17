@@ -2,6 +2,9 @@ package com.wkrzywiec.medium.nasapicture;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
 
 @SpringBootApplication
 public class NasapictureApplication extends SpringBootServletInitializer {
