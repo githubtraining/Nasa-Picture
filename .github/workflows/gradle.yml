@@ -14,9 +14,11 @@ jobs:
       with:
         java-version: 1.8
     - name: Prepare pem file
-      run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output marx4universe.pem secrets/marx4universe.pem.gpg
+      run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output awsaccess.pem secrets/marx4universe.pem.gpg
       env:
         GPGPW: ${{secrets.awspassword}}
+    - name: Change pem File Permissions
+      run: chmod 0400 awsaccess.pem
 
     - name: Add pem File to Secure Shell Access
       run: eval $(ssh-agent);ssh-add marx4universe.pem
