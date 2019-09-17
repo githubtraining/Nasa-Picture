@@ -21,7 +21,7 @@ jobs:
       run: chmod 0400 awsaccess.pem
 
     - name: Add pem File to Secure Shell Access
-      run: eval $(ssh-agent);ssh-add marx4universe.pem
+      run: eval $(ssh-agent);ssh-add awsaccess.pem
       
     - name: Copy Test Reports To AWS Jump Box
       run: ansible webservers -i ansible/inventory.yml -m "pwd"
