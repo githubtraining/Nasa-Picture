@@ -23,7 +23,7 @@ jobs:
       run: eval $(ssh-agent);ssh-add awsaccess.pem
       
     - name: Copy Test Reports To AWS Jump Box
-      run: ansible webservers -i ansible/inventory.yml -m "pwd"
+      run: ansible webservers -i ansible/inventory.yml -u ubuntu -m "pwd"
       env:
         ANSIBLE_HOST_KEY_CHECKING: False
     - name: Run Unit Tests
