@@ -4,5 +4,5 @@
     - name: Copy files to remote host
       synchronize:
         src: /home/runner/work/Nasa-Picture/Nasa-Picture/build/reports/tests/test/
-        dest: /var/www/html/reports/"{{lookup('env','github-actor')}}"
+        dest: /var/www/html/reports/{{github-actor}}"
       become: true
