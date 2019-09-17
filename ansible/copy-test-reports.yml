@@ -1,7 +1,7 @@
 - hosts: webservers
   gather_facts: no
   tasks:
-    - name: Create backup folder
+    - name: Create desitnation directory on remote webserver
       file:
         path: /var/www/html/reports/{{ghactor}}
         state: directory
