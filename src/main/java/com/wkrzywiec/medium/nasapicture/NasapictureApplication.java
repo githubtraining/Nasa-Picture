@@ -29,6 +29,7 @@ public class NasapictureApplication extends SpringBootServletInitializer {
         @GetMapping("/")
         public String handler() {
            // ...
+           return "Hello";
         }
     }
 }
