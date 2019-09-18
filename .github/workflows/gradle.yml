@@ -33,19 +33,11 @@ jobs:
       
     - name: Look After Tests
       run: ls -laR
-    
-    - name: Push Test Results Back To Repo
-      run: git add test-reports
-    - name: Git Commit
-      run: git commit -m "Test Results From Workflow"
-    
-    - name: Git Status
-      run: git status
-      
+
     - uses: actions/upload-artifact@master
       with:
         name: test-report
-        path: test-reports/
+        path: test-reports/      
     
     - name: Copy Test Reports To AWS Webserver
       run: ansible-playbook -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml --extra-vars "ghactor=${{github.actor}}" ansible/copy-test-reports.yml
