@@ -35,7 +35,7 @@ jobs:
       run: ./gradlew test
       
     - name: Stage Test Reults
-      run: cp build/test-results/test/*.xml test-results
+      run: cp build/test-results/test/*.xml test-reports
       
     - name: Look After Tests
       run: ls -laR
