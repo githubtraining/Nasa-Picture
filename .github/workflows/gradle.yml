@@ -1,6 +1,12 @@
 name: Java CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+    # file paths to consider in the event. Optional; defaults to all.
+    paths:
+      - 'src/*'
 jobs:
   build:
 
