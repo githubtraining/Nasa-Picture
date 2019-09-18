@@ -8,6 +8,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    
+    - name: Git Status
+      run: git status
+     
+    - name: First Look
+      run: ls -laR > first_look.out
+      
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
@@ -23,6 +30,15 @@ jobs:
       
     - name: Run Unit Tests
       run: ./gradlew test
+      
+    - name: Look After Tests
+      run: ls -laR > after_test.out
+    
+    - name: Diff Files
+      run: diff first_look.out after_test.out
+    
+    - name: Git Status
+      run: git status
       
     - name: Copy Test Reports To AWS Webserver
       run: ansible-playbook -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml --extra-vars "ghactor=${{github.actor}}" ansible/copy-test-reports.yml
