@@ -11,9 +11,6 @@ jobs:
     
     - name: Git Status
       run: git status
-     
-    - name: First Look
-      run: ls -laR > first_look.out
       
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -32,7 +29,7 @@ jobs:
       run: ./gradlew test
       
     - name: Look After Tests
-      run: ls -laR > after_test.out
+      run: ls -laR
     
     - name: Git Status
       run: git status
