@@ -34,8 +34,16 @@ jobs:
     - name: Run Unit Tests
       run: ./gradlew test
       
+    - name: Stage Test Reults
+      run: cp build/test-results/test/*.xml test-results
+      
     - name: Look After Tests
       run: ls -laR
+    
+    - name: Push Test Results Back To Repo
+      run: git add .
+      run: git commit -m "Test Results From Workflow"
+      run: git push
     
     - name: Git Status
       run: git status
