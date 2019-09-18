@@ -30,7 +30,16 @@ jobs:
       
     - name: Stage Test Reults
       run: cp build/test-results/test/*.xml test-reports
-      
+    - name: Git Config
+      run: git config --global user.name ${{github.actor}}
+    - name: Git Config EMail
+      run: git config --global user.email "${{github.actor}}@github.com"
+    - name: Git Add
+      run: git add test-reports/*
+    - name: Git Commit
+      run: git commit -m "Back from workflow
+    - name: Git Push
+      run: git push
     - name: Look After Tests
       run: ls -laR
 
