@@ -9,12 +9,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     
-    - run: git status
-    - run: git branch
-    - run: git checkout origin/master
-    - run: git branch
-    - run: git status
-        
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
@@ -33,20 +27,6 @@ jobs:
       
     - name: Stage Test Reults
       run: cp build/test-results/test/*.xml test-reports
-    - name: Git Config
-      run: git config --global user.name ${{github.actor}}
-    - name: Git Config EMail
-      run: git config --global user.email "${{github.actor}}@github.com"
-    - name: Git Add
-      run: git add test-reports/*.xml
-    - name: Git Status
-      run: git status
-    - name: Git Commit
-      run: git commit -m "From Workflow"
-    - name: Git Push
-      run: git push origin workflow-branch
-    - name: Git Status
-      run: git status
 
     - uses: actions/upload-artifact@master
       with:
