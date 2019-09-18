@@ -1,13 +1,6 @@
 name: Java CI
 
-on:
-  push:
-    branches:
-      - master
-    # file paths to consider in the event. Optional; defaults to all.
-    paths:
-      - '*'
-      - '!test-reports/*'
+on: [push]
 jobs:
   build:
 
@@ -45,8 +38,6 @@ jobs:
       run: git add test-reports
     - name: Git Commit
       run: git commit -m "Test Results From Workflow"
-    - name: Git Push
-      run: git push
     
     - name: Git Status
       run: git status
