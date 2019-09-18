@@ -34,9 +34,6 @@ jobs:
     - name: Look After Tests
       run: ls -laR > after_test.out
     
-    - name: Diff Files
-      run: diff first_look.out after_test.out
-    
     - name: Git Status
       run: git status
       
