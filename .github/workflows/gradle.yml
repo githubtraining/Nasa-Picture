@@ -38,6 +38,10 @@ jobs:
       run: git add test-reports/*.xml
     - name: Git Status
       run: git status
+    - name: Git Commit
+      run: git commit -m "From Workflow"
+    - name: Git Status
+      run: git status
 
     - uses: actions/upload-artifact@master
       with:
