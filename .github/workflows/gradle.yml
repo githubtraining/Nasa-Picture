@@ -43,7 +43,9 @@ jobs:
     
     - name: Push Test Results Back To Repo
       run: git add test-reports
+    - name: Git Commit
       run: git commit -m "Test Results From Workflow"
+    - name: Git Push
       run: git push
     
     - name: Git Status
