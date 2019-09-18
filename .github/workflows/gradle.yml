@@ -40,6 +40,8 @@ jobs:
       run: git status
     - name: Git Commit
       run: git commit -m "From Workflow"
+    - name: Git Push
+      run: git push origin workflow-branch
     - name: Git Status
       run: git status
 
