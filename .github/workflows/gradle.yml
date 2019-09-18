@@ -41,7 +41,7 @@ jobs:
       run: ls -laR
     
     - name: Push Test Results Back To Repo
-      run: git add .
+      run: git add test-reports
       run: git commit -m "Test Results From Workflow"
       run: git push
     
