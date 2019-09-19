@@ -20,7 +20,7 @@ jobs:
 #
 # The checkout action replicates the repository files into the virtual machine instance
 #
-  - uses: actions/checkout@v1
+    - uses: actions/checkout@v1
 
 #
 # The setup-java actions installs the 1.8 version of the Java JDK
