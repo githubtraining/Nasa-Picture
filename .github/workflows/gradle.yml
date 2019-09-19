@@ -41,7 +41,46 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
       
-    - name: Copy WebApp war file To AWS Webserver
-      run: ansible-playbook -u ubuntu --private-key=marx4universe.pem -i ansible/inventory.yml --extra-vars "ghactor=${{github.actor}}" ansible/copy-war-file.yml
+    - name: Docker Build
+      run: docker build -t nasa-picture .
+    - name: Login To Docker Hub
+      run: docker login -u ${{secrets.dhuser}} -p ${{secrets.dhpassword}}
+    - name: Tag Docker Image
+      run: docker tag nasa-picture:latest johndavidmarx/hubops:nasa-picture
+    - name: Push Image To DockerHub
+      run: docker push johndavidmarx/hubops:nasa-picture
+     
+    - name: Decrypt k8s config credentials
+      run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output k8s_config secrets/k8s_config.gpg
       env:
-        ANSIBLE_HOST_KEY_CHECKING: False
+        GPGPW: ${{secrets.awspassword}}
+
+    - name: Kubernetes kubectl delete deployment nasa-picture
+      run: kubectl delete deployment nasa-picture
+      env: 
+        KUBECONFIG: k8s_config
+
+    - name: Kubernetes kubectl delete service nasa-picture
+      run: kubectl delete service nasa-picture
+      env: 
+        KUBECONFIG: k8s_config
+       
+    - name: Kubernetes kubectl create service and application deployment
+      run: kubectl create -f kubernetes/nasa-picture.yml
+      env: 
+        KUBECONFIG: k8s_config
+
+    - name: Kubernetes kubectl get service
+      run: kubectl get service
+      env: 
+        KUBECONFIG: k8s_config
+        
+    - name: Kubernetes kubectl get deployments
+      run: kubectl get deployments
+      env: 
+        KUBECONFIG: k8s_config
+
+    - name: Kubernetes kubectl get pods
+      run: kubectl get pods
+      env: 
+        KUBECONFIG: k8s_config
