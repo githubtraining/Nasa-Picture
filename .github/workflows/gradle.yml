@@ -43,8 +43,8 @@ jobs:
       
     - name: Docker Build
       run: docker build -t nasa-picture .
-#    - name: Login To Docker Hub
-#      run: docker login -u ${{secrets.dhuser}} -p ${{secrets.dhpassword}}
+    - name: Login To Docker Hub
+      run: docker login -u ${{secrets.dhuser}} -p ${{secrets.dhpassword}}
     - name: Tag Docker Image
       run: docker tag nasa-picture:latest johndavidmarx/hubops:nasa-picture
     - name: Push Image To DockerHub
