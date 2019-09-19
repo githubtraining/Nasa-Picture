@@ -5,3 +5,7 @@ This is a test repo to develop actions against a sample java app
 9-12-19 - Begun work to call kubectl from the runner and enable the workflow to sense when kubernetes yaml files are pushed.
 
 9-17-19 Added deployment of test reports to aws server 
+
+9-19-19 Added the deployment to build a container and deploy to Kubernetes
+
+Will still need to sanitize some of the file naming, and move this over to GitHub's dockerhub account, but this is fully functional.
