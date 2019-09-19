@@ -54,19 +54,9 @@ jobs:
       run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output k8s_config secrets/k8s_config.gpg
       env:
         GPGPW: ${{secrets.awspassword}}
-
-    - name: Kubernetes kubectl delete deployment nasa-picture
-      run: kubectl delete deployment nasa-picture
-      env: 
-        KUBECONFIG: k8s_config
-
-    - name: Kubernetes kubectl delete service nasa-picture
-      run: kubectl delete service nasa-picture
-      env: 
-        KUBECONFIG: k8s_config
        
-    - name: Kubernetes kubectl create service and application deployment
-      run: kubectl create -f kubernetes/nasa-picture.yml
+    - name: Kubernetes kubectl create/update service and application deployment
+      run: kubectl apply -f kubernetes/nasa-picture.yml
       env: 
         KUBECONFIG: k8s_config
 
