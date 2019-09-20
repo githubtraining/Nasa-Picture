@@ -79,9 +79,9 @@ jobs:
     - name: Login To Docker Hub
       run: docker login -u ${{secrets.dhuser}} -p ${{secrets.dhpassword}}
     - name: Tag Docker Image
-      run: docker tag nasa-picture:latest johndavidmarx/hubops:nasa-picture
+      run: docker tag nasa-picture:latest githubtraining/universe:nasa-picture
     - name: Push Image To DockerHub
-      run: docker push johndavidmarx/hubops:nasa-picture
+      run: docker push githubtraining/universe:nasa-picture
 #
 # When a Kubernetes Cluster is initialized a file called /etc/kubernetes/config is created. The contents of that file is a certificate that is used to authenticate 
 # to the Kubernetes API. The contents of the Kubernetes Config file to enable kubectl to function has been encrypted and placed in the repo. The following stated
