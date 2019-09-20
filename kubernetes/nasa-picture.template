@@ -1,33 +1,33 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: np-johndavidmarx
+  name: np-GITHUB_ACTOR
 spec:
   selector:
-    app: np-johndavidmarx
+    app: np-GITHUB_ACTOR
   ports:
   - protocol: TCP
     port: 8080
-    nodePort: 30001
+    nodePort: NODE_PORT
   type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: np-johndavidmarx
+  name: np-GITHUB_ACTOR
 spec:
   selector:
       matchLabels:
-        app: np-johndavidmarx
+        app: np-GITHUB_ACTOR
   replicas: 3
   template:
     metadata:
       labels:
-        app: np-johndavidmarx
+        app: np-GITHUB_ACTOR
     spec:
       containers:
-        - name: np-johndavidmarx
-          image: githubtraining/universe:np-johndavidmarx
+        - name: np-GITHUB_ACTOR
+          image: githubtraining/universe:np-GITHUB_ACTOR
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
