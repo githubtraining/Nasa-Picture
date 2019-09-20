@@ -100,7 +100,7 @@ jobs:
       # We will have to set a node port for each student in secrets of somewhere
       run: sed s/NODE_PORT/30002/g kubernetes/nasa-picture.template
     - name: Copy Edited File Into PLace
-      run: cp kubernetes/pasa-picture.template kubernetes/nasa-picture.yml
+      run: cp kubernetes/nasa-picture.template kubernetes/nasa-picture.yml
     - name: Display nasa-picture.yml
       run: cat kubernetes/nasa-picture.yml
       
