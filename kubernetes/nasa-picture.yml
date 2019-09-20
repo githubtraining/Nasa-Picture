@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: nasa-picture
-          image: johndavidmarx/hubops:nasa-picture
+          image: githubtraining/universe:nasa-picture
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
