@@ -8,6 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 import java.time.LocalDate;
+import java.text.SimpleDateFormat;
 
 @Service
 public class AstronomyPictureService {
