@@ -14,7 +14,7 @@ public class AstronomyPictureService {
     @Autowired
     private RestTemplate restTemplate;
     
-    LocalDate randomDate = createRandomDate(2017, 2018);    
+    LocalDate randomDate = createRandomDate(2017, 2019);    
     
     String fullUrl = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=" + randomDate;
     
@@ -28,8 +28,8 @@ public class AstronomyPictureService {
     }
 
     public static LocalDate createRandomDate(int startYear, int endYear) {
-        int day = createRandomIntBetween(1, 28);
-        int month = createRandomIntBetween(1, 12);
+        int day = createRandomIntBetween(1, 18);
+        int month = createRandomIntBetween(1, 9);
         int year = createRandomIntBetween(startYear, endYear);
         return LocalDate.of(year, month, day);
     }
