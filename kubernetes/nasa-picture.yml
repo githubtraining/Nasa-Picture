@@ -1,32 +1,32 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: nasa-picture
+  name: np-johndavidmarx
 spec:
   selector:
-    app: nasa-picture
+    app: np-johndavidmarx
   ports:
   - protocol: TCP
     port: 8080
-    nodePort: 30000
+    nodePort: 30001
   type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nasa-picture
+  name: np-johndavidmarx
 spec:
   selector:
       matchLabels:
-        app: nasa-picture
+        app: np-johndavidmarx
   replicas: 3
   template:
     metadata:
       labels:
-        app: nasa-picture
+        app: np-johndavidmarx
     spec:
       containers:
-        - name: nasa-picture
+        - name: np-johndavidmarx
           image: githubtraining/universe:np-johndavidmarx
           imagePullPolicy: Always
           ports:
