@@ -8,4 +8,11 @@ This is a test repo to develop actions against a sample java app
 
 9-19-19 Added the deployment to build a container and deploy to Kubernetes
 
+9-20-19 Added sed edits of pod yml to personalize each pod deployed.
+        (Still need a variable port)
+
+        Changed application to randomize the day in the url sent to Nasa
+        
+        Change the container name to be personalized to github student handle
+
 Will still need to sanitize some of the file naming, and move this over to GitHub's dockerhub account, but this is fully functional.
