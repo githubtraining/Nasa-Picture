@@ -92,6 +92,16 @@ jobs:
       env:
         GPGPW: ${{secrets.awspassword}}
 #
+# The following commands edit the kubernetes/nasa-picture.template and substitute the GITHUB_ACTOR and NODE_PORT. Then the kubernetes/nasa-picture.yml is written.
+#
+    - name: Edit Nasa-Picture Pod and Service Spec YAML For GITHUB_ACTOR
+      run: sed s/GITHUB_ACTOR/${{github.actor}}/g kubernetes/Nasa-Picture.yml
+    - name: Edit Nasa-Picture Pod and Service Spec YAML For NODE_PORT
+      # We will have to set a node port for each student in secrets of somewhere
+      run: sed s/NODE_PORT/30002/g kubernetes/Nasa-Picture.yml
+    - name: Copy Edited File Into PLace
+      run: cp kubernetes/Nasa-Picture.template kubernetes/Nasa-Picture.yml
+      
 # This command uses a Kubernetes YAML file named kubernetes/nasa-picture.yml from the repo to create or update the pod deployment and the service used to expose the pod's
 # listening port to the Internet.
 #       
