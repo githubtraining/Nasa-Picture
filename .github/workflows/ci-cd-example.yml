@@ -95,10 +95,10 @@ jobs:
 # The following commands edit the kubernetes/nasa-picture.template and substitute the GITHUB_ACTOR and NODE_PORT. Then the kubernetes/nasa-picture.yml is written.
 #
     - name: Edit Nasa-Picture Pod and Service Spec YAML For GITHUB_ACTOR
-      run: sed s/GITHUB_ACTOR/${{github.actor}}/g kubernetes/nasa-picture.template
+      run: sed -i s/GITHUB_ACTOR/${{github.actor}}/g kubernetes/nasa-picture.template
     - name: Edit Nasa-Picture Pod and Service Spec YAML For NODE_PORT
       # We will have to set a node port for each student in secrets of somewhere
-      run: sed s/NODE_PORT/30002/g kubernetes/nasa-picture.template
+      run: sed -i s/NODE_PORT/30002/g kubernetes/nasa-picture.template
     - name: Copy Edited File Into PLace
       run: cp kubernetes/nasa-picture.template kubernetes/nasa-picture.yml
     - name: Display nasa-picture.yml
