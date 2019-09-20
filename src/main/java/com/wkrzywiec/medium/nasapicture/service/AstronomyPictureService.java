@@ -29,11 +29,13 @@ public class AstronomyPictureService {
     String pattern = "yyyy-MM-dd";
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
-    String date = simpleDateFormat.format(randomEpochDay);
+    String simpDate = simpleDateFormat.format(randomEpochDay);
+    
+    String fullUrl = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=" + simpDate,
     
     public AstronomyPictureOfDay getTodayPicture() {
         return restTemplate.getForObject(
-                "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date="+date,
+                fullUrl,
                 AstronomyPictureOfDay.class);
     }
 
