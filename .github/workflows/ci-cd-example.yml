@@ -84,16 +84,19 @@ jobs:
     - name: Push Image To DockerHub
       run: docker push githubtraining/universe:np-${{github.actor}}
 #
-# When a Kubernetes Cluster is initialized a file called /etc/kubernetes/config is created. The contents of that file is a certificate that is used to authenticate 
-# to the Kubernetes API. The contents of the Kubernetes Config file to enable kubectl to function has been encrypted and placed in the repo. The following stated
-# uses a secret from the GitHub vault to decrypt the Kubernetes config file and place it in a location where it may be used for the subsequent kubectl commands.
+# When a Kubernetes Cluster is initialized a file called /etc/kubernetes/config is created. The contents of that 
+# file is a certificate that is used to authenticate to the Kubernetes API. The contents of the Kubernetes Config
+# file to enable kubectl to function has been encrypted and placed in the repo. The following stated uses a secret
+# from the GitHub vault to decrypt the Kubernetes config file and place it in a location where it may be used for
+# the subsequent kubectl commands.
 #
     - name: Decrypt k8s config credentials
       run: gpg --quiet --batch --yes --decrypt --passphrase="$GPGPW" --output k8s_config secrets/k8s_config.gpg
       env:
         GPGPW: ${{secrets.awspassword}}
 #
-# The following commands edit the kubernetes/nasa-picture.template and substitute the GITHUB_ACTOR and NODE_PORT. Then the kubernetes/nasa-picture.yml is written.
+# The following commands edit the kubernetes/nasa-picture.template and substitute the GITHUB_ACTOR and NODE_PORT. 
+# Then the kubernetes/nasa-picture.yml is written.
 #
     - name: Edit Nasa-Picture Pod and Service Spec YAML For GITHUB_ACTOR
       run: sed -i s/GITHUB_ACTOR/${{github.actor}}/g kubernetes/nasa-picture.template
