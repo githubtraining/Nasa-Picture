@@ -56,9 +56,10 @@ jobs:
         name: test-report
         path: test-reports/      
 #
-# The following commands use an ansible playbook from the repo called ansible/copy-test-reports.yml to copy the reports to an apache web server.
-# The reports are in html format and are placed in directories for each GitHub actor, or user. The url name of the server is in the ansible/inventory.yml
-# file under webservers.
+# The following commands use an ansible playbook from the repo called ansible/copy-test-reports.yml to 
+# copy the reports to an apache web server. The reports are in html format and are placed in directories 
+# for each GitHub actor, or user. The url name of the server is in the ansible/inventory.yml file under 
+# webservers.
 #    
     - name: Copy Test Reports To AWS Webserver
 # testing for alternative students
