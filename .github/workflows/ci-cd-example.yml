@@ -72,8 +72,8 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 #
-# The following statements use the Dockerfile in the repo to build a container image with the war file produced. This builds the container, logs into dockerhub.com, tags the image,
-# and finally pushes it to dockerhub.com
+# The following statements use the Dockerfile in the repo to build a container image with the war file produced. 
+# This builds the container, logs into dockerhub.com, tags the image, and finally pushes it to dockerhub.com
 #     
     - name: Docker Build
       run: docker build -t nasa-picture .
