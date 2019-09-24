@@ -100,7 +100,9 @@ jobs:
     - name: Edit Nasa-Picture Pod and Service Spec YAML For GITHUB_ACTOR
       run: sed -i s/GITHUB_ACTOR/${{github.actor}}/g kubernetes/nasa-picture.template
     - name: Edit Nasa-Picture Pod and Service Spec YAML For NODE_PORT
-      run: sed -i s/NODE_PORT/${{ secrets.node_port }}/g kubernetes/nasa-picture.template
+      run: sed -i s/NODE_PORT/$GH_NODE_PORT/g kubernetes/nasa-picture.template
+      env:
+        GH_NODE_PORT: 30000
     - name: Copy Edited File Into PLace
       run: cp kubernetes/nasa-picture.template kubernetes/nasa-picture.yml
     - name: Display nasa-picture.yml in the Console Log of our Runner
