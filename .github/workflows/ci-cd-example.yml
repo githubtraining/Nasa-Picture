@@ -62,8 +62,7 @@ jobs:
 # webservers.
 #    
     - name: Copy Test Reports To AWS Webserver
-      run: ansible-playbook -u ubuntu --private-key=awskeypair.pem -i ansible/inventory.yml \
-           --extra-vars "ghactor=${{github.actor}}" ansible/copy-test-reports.yml
+      run: ansible-playbook -u ubuntu --private-key=awskeypair.pem -i ansible/inventory.yml --extra-vars "ghactor=${{github.actor}}" ansible/copy-test-reports.yml
       env:
         ANSIBLE_HOST_KEY_CHECKING: False
 #
