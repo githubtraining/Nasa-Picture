@@ -1,3 +1,3 @@
 <img width="800" alt="DevOps Loop Four Workshop Sessions" src="https://user-images.githubusercontent.com/43185011/64963440-41485000-d867-11e9-83cf-553d3ad9997f.png">
 
-# [Universe Workshop Documentation](workshops/mainpage.md)
+# [Universe Workshop Documentation](workshops/index.html)
