@@ -12,5 +12,5 @@
   * [CI Workshop Overview](CI.md)
   * [Deploy Build Artifacts](Deploy-Build-Artifacts.md)
   * [Using Secrets in Actions Workflows](Secrets-Actions-Workflows.md)
-  * [Deploying A Container App To Kubernetes](Deploy-Container-App-To-Kubernetes.md)
+  * [Deploying A Container App To Kubernetes](Deploy-To-Kubernetes.md)
   * [placeholder](placeholder.md)
