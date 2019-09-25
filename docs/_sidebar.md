@@ -16,4 +16,4 @@
   * [CI Workshop Definition](CI-Workshop.md)
   
 * Other Documents
-  * [Possible DevOps Topics](Curriculum-Topics.md
+  * [Possible DevOps Topics](Curriculum-Topics.md)
