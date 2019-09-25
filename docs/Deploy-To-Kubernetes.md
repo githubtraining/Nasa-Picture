@@ -50,7 +50,7 @@ To push the application to Docker Hub, authentication is required. The following
 docker login -u ${{secrets.dhuser}} -p ${{secrets.dhpassword}}
 ```
 
-####
+#### Tagging a Container
 
 To take the most recently tagged image named 'nasa-picture' and tell docker where to push the image to in docker hub, you would use this command:
 
