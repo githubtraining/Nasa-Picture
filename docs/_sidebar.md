@@ -6,11 +6,14 @@
 * VCS As The Foundation of DevOps
   * [Introductory Slide Deck](introductoryslidedeck.md)
   * [GitHub Flow In A DevOps Context](GitHub-Flow-DevOps.md)
-  * [VCS Workshop Overview](vcsworkshopoverview.md)
+  * [VCS Workshop Overview](VCS-Workshop.md)
   
 * Continuous Integration (CI/CD Part I)
   * [CI Workshop Overview](CI.md)
   * [Deploy Build Artifacts](Deploy-Build-Artifacts.md)
   * [Using Secrets in Actions Workflows](Secrets-Actions-Workflows.md)
   * [Deploying A Container App To Kubernetes](Deploy-To-Kubernetes.md)
-  * [placeholder](placeholder.md)
+  * [CI Workshop Definition](CI-Workshop.md)
+  
+* Other Documents
+  * [Possible DevOps Topics](Curriculum-Topics.md
