@@ -1,9 +1,5 @@
 ![logo](./img/cover.png ':no-zoom')
 
-# [The Official GitHub Training Manual](01_getting_ready_for_class)
-
-[English](mainpage)
-[日本語](/ja/)
-[PDF](book.pdf)
+# [Universe Workshop Documentation](Introduction.md)
 
 ![color](#f6f8fa)
