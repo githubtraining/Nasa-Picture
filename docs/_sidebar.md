@@ -4,7 +4,7 @@
   * [Placeholder](workflows/placeholder.md)
 
 * VCS As The Foundation of DevOps
-  * [Introductory Slide Deck](introductoryslidedeck.md)
+  * [Introductory Slide Deck](https://drive.google.com/file/d/1cClUB3Rtg3XbuvtWO60f1ptVjHCqs4as/view?usp=sharing)
   * [GitHub Flow In A DevOps Context](GitHub-Flow-DevOps.md)
   * [VCS Workshop Overview](VCS-Workshop.md)
   
