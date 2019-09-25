@@ -1,16 +1,16 @@
 * Introduction and Welcome
-  * [Getting Ready](gettingready.md)
-  * [Workshop Track Overview](workshoptrackoverview.md)
-  * [Placeholder](placeholder.md)
+  * [Getting Ready](workshops/gettingready.md)
+  * [Workshop Track Overview](workshops/Introduction.md)
+  * [Placeholder](workflows/placeholder.md)
 
 * VCS As The Foundation of DevOps
   * [Introductory Slide Deck](introductoryslidedeck.md)
-  * [GitHub Flow In A DevOps Context](githubflowindevops.md)
-  * [VCS Workshop Overview](vcsworkshopoverview.md)
+  * [GitHub Flow In A DevOps Context](workshops/GitHub-Flow-DevOps.md)
+  * [VCS Workshop Overview](workshops/vcsworkshopoverview.md)
   
 * Continuous Integration (CI/CD Part I)
-  * [CI Workshop Overview](ciworkshopoverview.md)
-  * [Editing on GitHub](08_edit_on_github.md)
-  * [Merging Pull Requests](09_merging_pull_requests.md)
-  * [Local History](10_local_history.md)
-  * [Streamline Workflow with Aliases](11_streamline_workflow_with_aliases.md)
+  * [CI Workshop Overview](CI.md)
+  * [Deploy Build Artifacts](workshops/Deploy-Build-Artifacts.md)
+  * [Using Secrets in Actions Workflows](workflows/Secrets-Actions-Workflows.md)
+  * [Deploying A Container App To Kubernetes](workflows/Deploy-Container-App-To-Kubernetes.md)
+  * [placeholder](workflows/placeholder.md)
