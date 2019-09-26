@@ -14,6 +14,9 @@
   * [Using Secrets in Actions Workflows](Secrets-Actions-Workflows.md)
   * [Deploying A Container App To Kubernetes](Deploy-To-Kubernetes.md)
   * [CI Workshop Definition](CI-Workshop.md)
+
+* Continuous Delivery (CI/CD Part II)
+  * [CD Workshop Overview](CD.md)
   
 * Other Documents
   * [Possible DevOps Topics](Curriculum-Topics.md)
