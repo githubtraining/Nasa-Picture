@@ -53,10 +53,9 @@ The Continuous Delivery session builds upon the Continuous Integration session a
 - Enabling application workload promotion through dev, test and pre-production targets
 - Deploying to production
 
-### <img width="50" alt="Release Automation" src="https://user-images.githubusercontent.com/43185011/64967417-75733f00-d86e-11e9-95e7-796965bd9e1a.png"> Session 4: Release Automation
+### <img width="50" alt="Release Automation" src="https://user-images.githubusercontent.com/43185011/64967417-75733f00-d86e-11e9-95e7-796965bd9e1a.png"> Session 4: DevOps CI/CD for regulated contexts, continuous delivery release automation
 
-The Release Automation session will build upon the workflows covered in the Continuous Delivery session with particular emphasis on release gating in regulated contexts. The workshop session will focus on the following capabilities:
-
-- Creating GitHub Action Workflows that enable user approval(s) prior to commencement
-- Using release snapshots to automate rollback and recovery
-- 
+In this workshop, students will use the recently released GitHub pipeline actions and other capabilities to deploy to conventional virtual environments—and develop a number of deployment options using polyglot application workload examples. Students will also implement deployment workflows and release automation to eliminate manual hand-off's and accommodate GRC (Governance, Risk Management, Audit, and Compliance). Learn how to:
+- Profile application workloads for various gating contexts
+- Implement automated approval and gating processes to facilitate stakeholder deployment approvals
+- Deploy conventional application build artifacts and packages to virtual servers in a cloud infrastructure.
